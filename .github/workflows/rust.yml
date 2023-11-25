@@ -28,3 +28,7 @@ jobs:
           whoami
           env
           freebsd-version
+          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs > rustup.sh
+          chmod +x ./rustup.sh
+          ./rustup.sh -y -v --default-toolchain=nightly
+          cargo build
