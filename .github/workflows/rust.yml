@@ -26,18 +26,17 @@ jobs:
     - name: Setup toolchain manually
       run: |
         rustup toolchain install nightly-x86_64-unknown-freebsd
-    - name: Install cargo-zigbuild
-      run: cargo install cargo-zigbuild
+    #- name: Install cargo-zigbuild
+    #  run: cargo install cargo-zigbuild
     - name: Checkout
       uses: actions/checkout@v4
     - name: Cache
       uses: Swatinem/rust-cache@v2
     - name: Build
-      run: cargo zigbuild --target x86_64-unknown-freebsd
+      run: cargo build --target x86_64-unknown-freebsd
     - name: Upload
       uses: actions/upload-artifact@v3.1.3
       with:
-        name: dll_release
         path: /home/runner/work/mljboard/mljboard/target/x86_64-unknown-freebsd/release/mljboard
     - name: debug
-      run:  ls -halt /home/runner/work/mljboard/mljboard/target/
+      run: ls -halt /home/runner/work/mljboard/mljboard/target/
