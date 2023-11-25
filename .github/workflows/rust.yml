@@ -26,6 +26,7 @@ jobs:
     - name: Setup toolchain manually
       run: |
         rustup toolchain install nightly-x86_64-unknown-freebsd
+        rustup target add x86_64-unknown-freebsd
     #- name: Install cargo-zigbuild
     #  run: cargo install cargo-zigbuild
     - name: Checkout
