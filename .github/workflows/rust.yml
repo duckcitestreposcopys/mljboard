@@ -23,12 +23,14 @@ jobs:
           toolchain: nightly
           targets: x86_64-unknown-freebsd
           components: rust-src
+    - name: Install cargo-zigbuild
+      run: cargo install cargo-zigbuild
     - name: Checkout
       uses: actions/checkout@v4
     - name: Cache
       uses: Swatinem/rust-cache@v2
     - name: Build
-      run: cargo build --release --target x86_64-unknown-freebsd
+      run: cargo zigbuild --target x86_64-unknown-freebsd
     - name: Upload
       uses: actions/upload-artifact@v3.1.3
       with:
